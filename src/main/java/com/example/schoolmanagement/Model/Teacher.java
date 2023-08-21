@@ -5,6 +5,8 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.util.Set;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -30,4 +32,8 @@ public class Teacher {
     @OneToOne(cascade = CascadeType.DETACH , mappedBy = "teacher")
     @PrimaryKeyJoinColumn
     private Address address;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="teacher")
+    private Set<Course> course;
+
 }

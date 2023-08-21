@@ -42,5 +42,7 @@ public class TeacherSerivce {
         teacherreposertory.save(teacher1);
     }
 
+
+
 }
 
