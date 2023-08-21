@@ -40,7 +40,8 @@ public class CourseController {
         return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse("course assigned"));
     }
     @GetMapping("/search/{courseId}")
-    public ResponseEntity searchCourse(@PathVariable Integer courseId){
-      return ResponseEntity.status(HttpStatus.OK).body(couserService.searchById(courseId));
+    public ResponseEntity searchCourse(@PathVariable Integer courseId) {
+        String teacherName = couserService.searchById(courseId);
+        return ResponseEntity.status(HttpStatus.OK).body(new ApiResponse(teacherName));
     }
 }

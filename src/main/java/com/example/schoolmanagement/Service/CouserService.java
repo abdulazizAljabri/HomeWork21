@@ -51,12 +51,13 @@ public class CouserService {
         courseRepposertoy.save(course1);
     }
 
-    public Teacher searchById(Integer id){
-     Course course = courseRepposertoy.findCourseById(id);
-     if(course == null){
-         throw new ApiException("Course not found");
-     }
-    return course.getTeacher();
+    public String searchById(Integer id) {
+        Course course = courseRepposertoy.findCourseById(id);
+        if (course == null) {
+            throw new ApiException("Course not found");
+        }
+        Teacher teacher = course.getTeacher();
+        return teacher.getTeacherName();
     }
 
 }
